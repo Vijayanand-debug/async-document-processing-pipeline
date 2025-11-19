@@ -27,7 +27,7 @@ It takes care of reload recovery, error handling, and syncing the UI with the ba
 # How These Services Interact with Each Other
 
 - The Client Layer & API Layer
-    - Everything starts when a uploads text or documents in the React Application (Client Layer).
+    - Everything starts when a user uploads text or documents in the React Application (Client Layer).
     - The React app sends an HTTP request to the Fast API server (API Layer).
     - Processing: The Server does three things:
       - Writes job details to Postgres DB.
@@ -37,7 +37,7 @@ It takes care of reload recovery, error handling, and syncing the UI with the ba
 
 - The Worker Layer
   - The Fast API Worker pulls the "Job" from SQS to process it.
-  - During each stage of the processing, it publishes status updates to Redis.
+  - During each stage of the pipeline process, it publishes status updates to Redis.
 
 - The Websocket Layer
   - The client connects to the Websocket Layer.
@@ -46,7 +46,7 @@ It takes care of reload recovery, error handling, and syncing the UI with the ba
 
 # To Run the Project Locally:
 
-# Setting Up AWS SQS (Basic Setup)
+## Setting Up AWS SQS (Basic Setup)
 
 - This project only needs a simple SQS queue, nothing complex like dead letter queues or special routing.
 - Go to the AWS Console and then SQS.
@@ -60,7 +60,7 @@ It takes care of reload recovery, error handling, and syncing the UI with the ba
 - For more details, please check 
 https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
 
-# Setting Up AWS S3 (Basic Setup)
+## Setting Up AWS S3 (Basic Setup)
 - Go to the AWS Console and then S3.
     - Click Create bucket, General Purpose.
     - Name the bucket anything you like (e.g. my-doc-processing-bucket).
@@ -83,7 +83,7 @@ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welco
   https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
  
 
-# Running the project with Docker Compose
+## Running the project with Docker Compose
 
 - This project uses Docker Compose to run all the Services:
   - FastAPI API
@@ -105,3 +105,6 @@ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welco
 
 - To Stop Everything
   - docker compose up -d --build
+
+# Note:
+While this backend can handle large documents, in real-world applications it’s better to extract text page by page (or section by section) and store it in S3 or a similar service, instead of keeping all the extracted text in memory. This approach improves performance and reduces memory usage.
