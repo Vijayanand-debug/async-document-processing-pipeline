@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+boto3
+pydantic
+requests
+python-dotenv
+SQLAlchemy
+psycopg2-binary
+python-multipart
+openai
+pathlib
+pymupdf
+redis
+tiktoken

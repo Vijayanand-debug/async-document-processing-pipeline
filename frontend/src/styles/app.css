@@ -1,0 +1,99 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.2s ease-out;
+}
+
+#gen-ai-content {
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+#gen-ai-content h1,
+#gen-ai-content h2,
+#gen-ai-content h3,
+#gen-ai-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+#gen-ai-content p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #374151;
+}
+
+#gen-ai-content ul,
+#gen-ai-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    list-style: disc;
+}
+
+#gen-ai-content li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #374151;
+
+}
+
+#gen-ai-content a {
+    color: #4f46e5;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+#gen-ai-content a:hover {
+    color: #6366f1;
+}
+
+#gen-ai-content::-webkit-scrollbar {
+    display: none;
+}
+
+.thinking-text {
+    color: #7e7e7e;
+    opacity: 0.65;
+    font-size: 0.85rem;
+    padding: 4px 0;
+    border-left: 3px solid #dcdcdc;
+    margin-left: 6px;
+    padding-left: 8px;
+    font-style: italic;
+}
+
+.ai-output {
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.ai-output h2,
+.ai-output h3 {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
