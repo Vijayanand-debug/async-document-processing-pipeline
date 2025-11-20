@@ -104,7 +104,7 @@ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welco
   - docker compose logs -f frontend
 
 - To Stop Everything
-  - docker compose up -d --build
+  - docker compose down
 
 # Note:
-While this backend can handle large documents, in real-world applications it’s better to extract text page by page (or section by section) and store it in S3 or a similar service, instead of keeping all the extracted text in memory. This approach improves performance and reduces memory usage.
+While this backend can handle large documents, in real world applications it’s better to extract text from documents page by page (or section by section) and store it in S3 or a similar service, instead of keeping all the extracted text in memory. This approach improves performance and reduces memory usage.
